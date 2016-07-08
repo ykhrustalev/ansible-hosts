@@ -1,0 +1,9 @@
+#!/bin/bash
+
+namespace=ansible-hosts
+dist_name="$1"
+dist_version="$2"
+
+img_name=${namespace}:${dist_name}-${dist_version}
+
+(cd ${dist_name}/${dist_version} && docker build --rm -t ${img_name} . )
